@@ -1,0 +1,12 @@
+<h3>Your messages:</h3>
+<form action="/messages" method="POST">
+	<input type="text" name="message[content]" />
+	<input type="submit" value="Submit" />
+</form>
+<ul>
+	<% @messages.each do |message| %>
+		<li>
+			<%= message.content %>
+		</li>
+	<% end %>
+</ul>
