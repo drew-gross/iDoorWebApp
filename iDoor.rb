@@ -29,7 +29,7 @@ post '/messages' do
 	    :to => "drew.a.gross@gmail.com",
 	    :subject => "New Message from iDoor!",
 	    :html => @content
-	@message.save
+	@content.save
 	@content
 end
 
