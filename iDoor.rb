@@ -23,15 +23,14 @@ get '/messages/:id' do
 end
 
 post '/messages' do
-	@message = Message.new(params[:message])
-	puts @message.content
+	@content = Message.new(params[:content])
 	RestClient.post API_URL+"/messages", 
 	    :from => "idoor@idoor.heroku.com",
 	    :to => "drew.a.gross@gmail.com",
 	    :subject => "New Message from iDoor!",
-	    :html => @message.content
+	    :html => @content
 	@message.save
-	'Hello, iPad'
+	@content
 end
 
 message = <<MESSAGE_END
