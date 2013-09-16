@@ -31,7 +31,7 @@ post '/messages' do
 	    :subject => "New Message from iDoor!",
 	    :html => @message.content
 	@message.save
-	@message.content
+	'Hello, iPad'
 end
 
 message = <<MESSAGE_END
