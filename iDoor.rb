@@ -30,11 +30,8 @@ post '/messages' do
 	    :to => "drew.a.gross@gmail.com",
 	    :subject => "New Message from iDoor!",
 	    :html => @message.content
-	if @message.save
-		redirect '/messages/' + @message.id.to_s
-	else
-		"Error"
-	end
+	@message.save
+	@message.content
 end
 
 message = <<MESSAGE_END
