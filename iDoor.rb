@@ -24,6 +24,7 @@ end
 
 post '/messages' do
 	@message = Message.new(params[:message])
+	puts @message
 	RestClient.post API_URL+"/messages", 
 	    :from => "idoor@idoor.heroku.com",
 	    :to => "drew.a.gross@gmail.com",
