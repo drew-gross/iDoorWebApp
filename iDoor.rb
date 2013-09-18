@@ -23,12 +23,11 @@ get '/messages/:id' do
 end
 
 post '/messages' do
-	puts request.body
 	RestClient.post API_URL+"/messages", 
 	    :from => "idoor@idoor.heroku.com",
 	    :to => "drew.a.gross@gmail.com",
 	    :subject => "New Message from iDoor!",
-	    :html => request.body
+	    :text => request.body
 end
 
 message = <<MESSAGE_END
