@@ -19,6 +19,7 @@ get '/messages' do
 end
 
 get '/messages/:id' do
+	content_type 'image/jpeg'
 	Message.find(params[:id]).content
 end
 
