@@ -27,7 +27,7 @@ post '/messages' do
 	    :from => "idoor@idoor.heroku.com",
 	    :to => "drew.a.gross@gmail.com",
 	    :subject => "New Message from iDoor!",
-	    :text => request.body
+	    :text => request.body.string
 end
 
 message = <<MESSAGE_END
