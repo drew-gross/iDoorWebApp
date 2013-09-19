@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require './config/environments' #database configuration
 require './models/message'
 require 'rest_client'
+require 'base64'
 
 API_KEY = ENV['MAILGUN_API_KEY']
 API_URL = "https://api:#{API_KEY}@api.mailgun.net/v2/app18128146.mailgun.org"
@@ -20,11 +21,11 @@ end
 
 get '/messages/:id' do
 	content_type 'image/jpeg'
-	Message.find(params[:id]).content
+	Base64.decode64(Message.find(params[:id]).content)
 end
 
 post '/messages' do
-	@message = Message.new(:content => request.body.string)
+	@message = Message.new(:content => Base64.encode64(request.body.string))
 	@message.save
 	RestClient.post API_URL+"/messages", 
 	    :from => "idoor@idoor.heroku.com",
