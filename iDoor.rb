@@ -31,11 +31,3 @@ post '/messages' do
 	    :subject => "New Message from iDoor!",
 	    :text => "http://www.herokuapp.com/messages/" + @message.id.to_s
 end
-
-message = <<MESSAGE_END
-From: The Door <door@idoor.heroku.com>
-To: Drew Gross <drew.a.gross+idoor@gmail.com>
-Subject: New Message from iDoor!
-
-Test message
-MESSAGE_END
