@@ -1,4 +1,4 @@
-class VarcharToText.rb < ActiveRecord::Migration
+class VarcharToText < ActiveRecord::Migration
   def up
   	change_column :messages, :content, :text
   end
