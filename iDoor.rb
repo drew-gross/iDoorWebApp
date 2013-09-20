@@ -31,5 +31,5 @@ post '/messages' do
 	    :from => "idoor@idoor.heroku.com",
 	    :to => "drew.a.gross@gmail.com",
 	    :subject => "New Message from iDoor!",
-	    :text => "http://idoor.herokuapp.com/messages/" + @message.id.to_s
+	    :html => '<img src="http://idoor.herokuapp.com/messages/' + @message.id.to_s + '">'
 end
