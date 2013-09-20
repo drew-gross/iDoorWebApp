@@ -25,7 +25,12 @@ get '/messages/:id' do
 end
 
 post '/messages' do
-	@message = Message.new(:content => Base64.encode64(request.body.string))
+	if request.body.respond_to?(:string) 
+		string = request.body.string
+	elsif reques.bosy.respond_to?(:read)
+		string = request.body.read
+	end
+	@message = Message.new(:content => Base64.encode64(strign))
 	@message.save
 	RestClient.post API_URL+"/messages", 
 	    :from => "idoor@idoor.heroku.com",
