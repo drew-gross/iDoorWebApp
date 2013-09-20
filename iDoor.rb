@@ -27,7 +27,7 @@ end
 post '/messages' do
 	if request.body.respond_to?(:string) 
 		string = request.body.string
-	elsif reques.bosy.respond_to?(:read)
+	elsif request.bosy.respond_to?(:read)
 		string = request.body.read
 	end
 	@message = Message.new(:content => Base64.encode64(strign))
